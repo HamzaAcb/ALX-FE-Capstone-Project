@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button";
 import Hero from "./components/custom/Hero";
 import Header from "./components/custom/Header";
 import Destination from "./components/custom/Destination";
+import CustomerReviews from "./components/custom/CustomerReviews";
+import Footer from "./components/custom/Footer";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -15,6 +17,8 @@ function App() {
       <Header />
       <Hero />
       <Destination />
+      <CustomerReviews />
+      <Footer />
     </div>
   );
 }
