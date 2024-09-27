@@ -1,6 +1,8 @@
 import React from "react";
+/* importing the button from shadcn.ui*/
 import { Button } from "../ui/button";
 
+/* creating the header section with the trippin logo and signup and signin buttons*/
 const Header = () => {
   return (
     <div className="p-4 ml-9 flex justify-between items-center">
