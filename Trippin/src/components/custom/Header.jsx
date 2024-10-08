@@ -1,15 +1,23 @@
 import React from "react";
-/* importing the button from shadcn.ui*/
-import { Button } from "../ui/button";
+import { Link } from "react-router-dom"; // Import Link for navigation
 
-/* creating the header section with the trippin logo and signup and signin buttons*/
+/* creating the header section */
 const Header = () => {
   return (
-    <div className="p-4 ml-9 flex justify-between items-center">
-      <img src="/Logo.svg" />
-      <div>
-        <Button className="bg-purple-700 mr-2">Sign Up</Button>
-        <Button className="bg-black mr-2">Sign In</Button>
+    <div className="p-4 flex justify-between items-center">
+      <img src="/Logo.svg" alt="Logo" className="h-12 w-24" />
+
+      {/* Centering the links */}
+      <div className="font-bold text- flex-grow flex justify-center space-x-8 ">
+        <Link to="/" className=" hover:text-purple-700 underline">
+          Home
+        </Link>
+        <Link to="/Flights" className=" hover:text-purple-700 underline">
+          Flights
+        </Link>
+        <Link to="/Activities" className=" hover:text-purple-700 underline">
+          Activities
+        </Link>
       </div>
     </div>
   );
