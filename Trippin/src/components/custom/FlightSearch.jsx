@@ -5,6 +5,7 @@ const FlightSearch = () => {
   const [origin, setOrigin] = useState("");
   const [destination, setDestination] = useState("");
   const [departureDate, setDepartureDate] = useState("");
+  const [returnDate, setReturnDate] = useState(""); // State for the return date
   const [flights, setFlights] = useState([]);
   const [error, setError] = useState("");
 
@@ -13,10 +14,12 @@ const FlightSearch = () => {
     setError(""); // Clear previous errors
     setFlights([]); // Clear previous results
     try {
+      // Fetch flight offers using origin, destination, departure, and return dates
       const flightOffers = await fetchFlightOffers(
         origin,
         destination,
-        departureDate
+        departureDate,
+        returnDate // Pass the return date for round-trip search
       );
       setFlights(flightOffers); // Store the flight results
     } catch (err) {
@@ -33,7 +36,7 @@ const FlightSearch = () => {
 
       {/* Form for flight search inputs */}
       <div className="bg-white shadow-md rounded-lg p-6 space-y-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           {/* Input for origin airport code */}
           <input
             type="text"
@@ -55,6 +58,13 @@ const FlightSearch = () => {
             type="date"
             value={departureDate}
             onChange={(e) => setDepartureDate(e.target.value)}
+            className="border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+          />
+          {/* Input for selecting return date */}
+          <input
+            type="date"
+            value={returnDate}
+            onChange={(e) => setReturnDate(e.target.value)}
             className="border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
           />
         </div>
@@ -87,17 +97,32 @@ const FlightSearch = () => {
                   </p>
                   <p className="text-sm text-gray-500">Flight {index + 1}</p>
                 </div>
-                {/* Display the departure and arrival airport codes */}
+                {/* Display the departure and arrival airport codes for the outbound flight */}
                 <div className="flex justify-between items-center">
                   <p className="text-gray-600">
                     <span className="font-semibold">Departure:</span>{" "}
-                    {flight.itineraries[0].segments[0].departure.iataCode}
-                  </p>
-                  <p className="text-gray-600">
-                    <span className="font-semibold">Arrival:</span>{" "}
+                    {flight.itineraries[0].segments[0].departure.iataCode} -{" "}
                     {flight.itineraries[0].segments[0].arrival.iataCode}
                   </p>
+                  <p className="text-gray-600">
+                    <span className="font-semibold">Date:</span>{" "}
+                    {flight.itineraries[0].segments[0].departure.at}
+                  </p>
                 </div>
+                {/* Display return flight details if available */}
+                {flight.itineraries[0].segments[1] && (
+                  <div className="flex justify-between items-center mt-4">
+                    <p className="text-gray-600">
+                      <span className="font-semibold">Return:</span>{" "}
+                      {flight.itineraries[0].segments[1].departure.iataCode} -{" "}
+                      {flight.itineraries[0].segments[1].arrival.iataCode}
+                    </p>
+                    <p className="text-gray-600">
+                      <span className="font-semibold">Date:</span>{" "}
+                      {flight.itineraries[0].segments[1].departure.at}
+                    </p>
+                  </div>
+                )}
               </li>
             ))}
         </ul>
