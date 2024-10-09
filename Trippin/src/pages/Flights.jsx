@@ -5,7 +5,7 @@ import FlightSearch from "@/components/custom/FlightSearch"; // Importing the Fl
 // Main Flights component
 const Flights = () => {
   return (
-    <div className="min-h-screen bg-purple-400">
+    <div className="min-h-screen bg-fuchsia-300">
       {" "}
       {/* Full page container with a background color */}
       <Header /> {/* Display the Header at the top */}
