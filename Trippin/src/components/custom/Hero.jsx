@@ -5,16 +5,16 @@ import { Link } from "react-router-dom";
 // Hero component: This section displays a hero banner with a call to action
 const Hero = () => {
   return (
-    <div className="h-full flex items-center w-1/2 pl-12">
+    <div className="h-full flex flex-col md:flex-row items-center w-full md:w-1/2 px-5 md:pl-12">
       <div className="text-left">
         {/* Main heading with highlighted text */}
-        <h1 className="text-black font-extrabold text-[40px] leading-snug">
+        <h1 className="text-black font-extrabold text-3xl md:text-[40px] leading-snug">
           Travel, Enjoy and Live a <span className="text-white">New Life</span>{" "}
           Full of Fun
         </h1>
 
         {/* Subheading for the hero section */}
-        <h2 className="text-black mt-4 text-lg">
+        <h2 className="text-black mt-4 text-base md:text-lg">
           Pack up your bags, book the destination, and live a life of your
           dreams. Best travel planner across the globe.
         </h2>

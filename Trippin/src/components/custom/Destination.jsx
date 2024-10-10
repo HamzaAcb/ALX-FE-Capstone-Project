@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 // Component for displaying a single destination card
 const DestinationCard = ({ city, description, imgSrc }) => {
   return (
-    <div className="bg-white shadow-md rounded-lg overflow-hidden transition-transform transform hover:scale-105 ">
+    <div className="bg-white shadow-md rounded-lg overflow-hidden transition-transform transform hover:scale-105">
       {/* Image for the destination */}
       <img className="w-full h-48 object-cover" src={imgSrc} alt={city} />
       <div className="p-4">
@@ -48,12 +48,12 @@ const Destination = () => {
   ];
 
   return (
-    <section className="text-center ">
+    <section className="text-center">
       {/* Section heading */}
-      <h2 className="text-purple-500 text-lg mb-2 ">Top Destination</h2>
+      <h2 className="text-purple-500 text-lg mb-2">Top Destination</h2>
       <h1 className="text-4xl font-bold mb-8">Explore Best Destination</h1>
-      {/* Container to display destination cards with spacing between them */}
-      <div className="ml-10 mr-10 flex justify-center space-x-8">
+      {/* Container to display destination cards with responsive layout */}
+      <div className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-8 mx-5">
         {destinations.map((destination, index) => (
           <DestinationCard
             key={index}
