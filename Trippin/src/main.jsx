@@ -5,6 +5,7 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Activities from "./pages/Activities.jsx";
 import Flights from "./pages/Flights.jsx";
+import Footer from "./components/custom/Footer.jsx";
 
 const router = createBrowserRouter([
   {
@@ -25,5 +26,6 @@ createRoot(document.getElementById("root")).render(
   // Using createRoot directly
   <StrictMode>
     <RouterProvider router={router} />
+    <Footer />
   </StrictMode>
 );
