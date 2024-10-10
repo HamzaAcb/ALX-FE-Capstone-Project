@@ -8,14 +8,14 @@ const Header = () => {
       <img src="/Logo.svg" alt="Logo" className="h-12 w-24" />
 
       {/* Centering the links */}
-      <div className="font-bold text-fuchsia-100 flex-grow flex justify-center space-x-8 ">
-        <Link to="/" className=" hover:text-purple-700 underline">
+      <div className="font-bold text-purple-900 flex-grow flex justify-center space-x-8 ">
+        <Link to="/" className=" hover:text-purple-500 underline">
           Home
         </Link>
-        <Link to="/Flights" className=" hover:text-purple-700 underline">
+        <Link to="/Flights" className=" hover:text-purple-500 underline">
           Flights
         </Link>
-        <Link to="/Activities" className=" hover:text-purple-700 underline">
+        <Link to="/Activities" className=" hover:text-purple-500 underline">
           Activities
         </Link>
       </div>

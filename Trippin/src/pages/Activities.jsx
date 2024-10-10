@@ -5,7 +5,7 @@ import PointsOfInterest from "@/components/custom/PointsOfInterest"; // Importin
 // Main Activities component
 const Activities = () => {
   return (
-    <div className="min-h-screen bg-fuchsia-300">
+    <div className="min-h-screen bg-stone-200">
       {" "}
       {/* Full screen container with background color */}
       <Header /> {/* Display the header at the top */}
